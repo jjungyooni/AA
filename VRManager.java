@@ -53,7 +53,7 @@ public class VRManager {
 		foundCustomer.setRentals(customerRentals);	
 	}
     
-    public void registerVideo(String title, VideoType videoType, PriceCode priceCode) {
+    public void registerVideo(String title, int videoType, int priceCode) {
 		Date registeredDate = new Date();
 		Video video = new Video(title, videoType, priceCode, registeredDate) ;
 		videos.add(video) ;
