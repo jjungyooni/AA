@@ -3,7 +3,6 @@ import java.util.Date;
 public class Video {
 	private String title ;
 
-	enum VideoType {VHS,CD,DVD}
 	private int priceCode ;
 	public static final int REGULAR = 1 ;
 	public static final int NEW_RELEASE =2 ;
