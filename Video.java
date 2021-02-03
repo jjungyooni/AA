@@ -3,15 +3,12 @@ import java.util.Date;
 public class Video {
 	private String title ;
 
+	enum VideoType {VHS,CD,DVD}
 	private int priceCode ;
 	public static final int REGULAR = 1 ;
 	public static final int NEW_RELEASE =2 ;
-	
+
 	private int videoType ;
-	public static final int VHS = 1 ;
-	public static final int CD = 2 ;
-	public static final int DVD = 3 ;
-	
 	private Date registeredDate ;
 	private boolean rented ;
 	
@@ -23,13 +20,7 @@ public class Video {
 	}
 
 	public int getLateReturnPointPenalty() {
-		int pentalty = 0 ;
-		switch ( videoType ) {
-			case VHS: pentalty = 1 ; break ;
-			case CD: pentalty = 2 ; break ;
-			case DVD: pentalty = 3 ; break ;
-		}
-		return pentalty ;
+		return VideoPanalty.fromInteger(videoType).getValue();
 	}
 	public int getPriceCode() {
 		return priceCode;
@@ -55,17 +46,7 @@ public class Video {
 		this.rented = rented;
 	}
 
-	public Date getRegisteredDate() {
-		return registeredDate;
-	}
-
-	public void setRegisteredDate(Date registeredDate) {
-		this.registeredDate = registeredDate;
-	}
-
-	public int getVideoType() {
-		return videoType;
-	}
+	public int getVideoType() {return videoType;}
 
 	public void setVideoType(int videoType) {
 		this.videoType = videoType;
