@@ -113,7 +113,7 @@ public class VRUI {
 		System.out.println("Enter video title to rent: ") ;
 		String videoTitle = scanner.next() ;
 
-		rentVideo(foundCustomer, videoTitle);
+		vrManager.rentVideo(foundCustomer, videoTitle);
 	}
 
 	private void registerVideo() {
