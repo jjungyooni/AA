@@ -120,11 +120,14 @@ public class VRUI {
 		System.out.println("Enter video title to register: ") ;
 		String title = scanner.next() ;
 		
+		System.out.println("Enter video title to register: ") ;
+		String title = scanner.next() ;
+			
 		System.out.println("Enter video type( 1 for VHD, 2 for CD, 3 for DVD ):") ;
-		VideoType videoType = VideoType.fromInteger(scanner.nextInt());
-		
+		int videoType = scanner.nextInt();
+			
 		System.out.println("Enter price code( 1 for Regular, 2 for New Release ):") ;
-		PriceCode priceCode = PriceCode.fromInteger(scanner.nextInt());
+		int priceCode = scanner.nextInt();
 		
 		vrManager.registerVideo(title, videoType, priceCode);
 	}
