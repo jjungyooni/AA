@@ -4,9 +4,6 @@ public class Video {
 	private String title ;
 
 	private int priceCode ;
-	public static final int REGULAR = 1 ;
-	public static final int NEW_RELEASE =2 ;
-
 	private int videoType ;
 	private Date registeredDate ;
 	private boolean rented ;
