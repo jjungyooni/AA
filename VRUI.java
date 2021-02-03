@@ -21,7 +21,7 @@ public class VRUI {
 				case 6: ui.returnVideo() ; break ;
 				case 7: ui.getCustomerReport() ; break; 
 				case 8: ui.clearRentals() ; break ;
-				case -1: vrManager.init() ; break ;
+//				case -1: vrManager.init() ; break ;
 				default: break ;
 			}
 		}
@@ -45,7 +45,7 @@ public class VRUI {
 			System.out.print("\tPrice Code: " + rental.getVideo().getPriceCode()) ;
 		}
 
-		vrManager.clearRental(customerName);
+		vrManager.clearRental(foundCustomer);
 	}
 
 	public void returnVideo() {

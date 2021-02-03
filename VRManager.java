@@ -21,7 +21,7 @@ public class VRManager {
 	public Customer findCustomer(String customerName) {
 		Customer foundCustomer = null ;
 		for ( Customer customer: customers ) {
-			if ( customer.isName(customerName)) {
+			if ( customer.getName().equals(customerName)) {
 				foundCustomer = customer ;
 				break ;
 			}
@@ -48,9 +48,9 @@ public class VRManager {
 		Rental rental = new Rental(foundVideo) ;
 		foundVideo.setRented(true);
 		
-		List<Rental> customerRentals = foundCustomer.getRentals() ;
-		customerRentals.add(rental);
-		foundCustomer.setRentals(customerRentals);	
+//		List<Rental> customerRentals = foundCustomer.getRentals() ;
+//		customerRentals.add(rental);
+//		foundCustomer.setRentals(customerRentals);
 	}
     
 	public void returnVideo(Customer customer, String videoTitle) {	
@@ -81,8 +81,8 @@ public class VRManager {
 		customers.add(james) ;
 		customers.add(brown) ;
 		
-		Video v1 = new Video("v1", Video.CD, Video.REGULAR, new Date()) ;
-		Video v2 = new Video("v2", Video.DVD, Video.NEW_RELEASE, new Date()) ;
+		Video v1 = new Video("v1", VideoType.CD.getValue(), Video.REGULAR, new Date()) ;
+		Video v2 = new Video("v2", VideoType.DVD.getValue(), Video.NEW_RELEASE, new Date()) ;
 		videos.add(v1) ;
 		videos.add(v2) ;
 		
