@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class VRUI {
-	private VRManager vrManager;
+	private VRManager vrManager = new VRManager();
 
 	private static Scanner scanner = new Scanner(System.in) ;
 	
@@ -117,9 +117,6 @@ public class VRUI {
 	}
 
 	private void registerVideo() {
-		System.out.println("Enter video title to register: ") ;
-		String title = scanner.next() ;
-		
 		System.out.println("Enter video title to register: ") ;
 		String title = scanner.next() ;
 			
