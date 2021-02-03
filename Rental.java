@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Rental {
+	private static final int ONE_DAY = 60 * 60 * 24;
 	private Video video ;
 	private int status ; // 0 for Rented, 1 for Returned
 	private Date rentDate ;
@@ -53,5 +54,50 @@ public class Rental {
 		if ( daysRented <= 2) return limit ;
 
 		return VideoLimit.fromInteger(video.getVideoType()).getValue() ;
+	}
+
+	public double getCharge() {
+		double eachCharge = 0;
+		int daysRented = getRented();
+
+		switch (getVideo().getPriceCode()) {
+			case Video.REGULAR:
+				eachCharge += 2;
+				if (daysRented > 2)
+					eachCharge += (daysRented - 2) * 1.5;
+				break;
+			case Video.NEW_RELEASE:
+				eachCharge = daysRented * 3;
+				break;
+			default:
+				break;
+		}
+
+		return eachCharge;
+	}
+
+	public int getRented() {
+		int daysRented = 0;
+
+		if (getStatus() == 1) { // returned Video
+			long diff = getReturnDate().getTime() - getRentDate().getTime();
+			daysRented = (int) (diff / (1000 * ONE_DAY)) + 1;
+		} else { // not yet returned
+			long diff = new Date().getTime() - getRentDate().getTime();
+			daysRented = (int) (diff / (1000 * ONE_DAY)) + 1;
+		}
+		return daysRented;
+	}
+
+	public int getPoint() {
+		int eachPoint = 0;
+		eachPoint++;
+
+		if (getVideo().getPriceCode() == Video.NEW_RELEASE)
+			eachPoint++;
+
+		if (getRented() > getDaysRentedLimit())
+			eachPoint -= Math.min(eachPoint, getVideo().getLateReturnPointPenalty());
+		return eachPoint;
 	}
 }
