@@ -81,8 +81,8 @@ public class VRManager {
 		customers.add(james) ;
 		customers.add(brown) ;
 		
-		Video v1 = new Video("v1", VideoType.CD.getValue(), Video.REGULAR, new Date()) ;
-		Video v2 = new Video("v2", VideoType.DVD.getValue(), Video.NEW_RELEASE, new Date()) ;
+		Video v1 = new Video("v1", VideoType.CD.getValue(), PriceType.REGULAR.getValue(), new Date()) ;
+		Video v2 = new Video("v2", VideoType.DVD.getValue(), PriceType.NEW_RELEASE.getValue(), new Date()) ;
 		videos.add(v1) ;
 		videos.add(v2) ;
 		
