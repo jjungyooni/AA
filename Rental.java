@@ -2,11 +2,6 @@ import java.util.Date;
 
 public class Rental {
 	private Video video ;
-	private enum VideoType {VHS, CD, DVD};
-	private enum VideoLimit {VHS, CD, DVD};
-	private enum VideoPanalty {VHS, CD, DVD};
-	private enum RentStatus {RENTED, RETURNED};
-
 	private int status ; // 0 for Rented, 1 for Returned
 	private Date rentDate ;
 	private Date returnDate ;
@@ -31,7 +26,7 @@ public class Rental {
 
 	public void returnVideo() {
 		if ( RentStatus.RETURNED.equals(status)) {
-			this.status = RentStatus.RETURNED.;
+			this.status = RentStatus.RETURNED.getValue();
 			returnDate = new Date() ;
 		}
 	}
@@ -57,6 +52,6 @@ public class Rental {
 		daysRented = (int) (diff / (1000 * 60 * 60 * 24)) + 1;
 		if ( daysRented <= 2) return limit ;
 
-		return VideoLimit.fromInteger(video.getVideoType()) ;
+		return VideoLimit.fromInteger(video.getVideoType()).getValue() ;
 	}
 }
