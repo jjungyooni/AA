@@ -50,7 +50,7 @@ public class Rental {
 			diff = new Date().getTime() - rentDate.getTime();
 
 		}
-		daysRented = (int) (diff / (1000 * 60 * 60 * 24)) + 1;
+		daysRented = (int) (diff / (1000 * ONE_DAY)) + 1;
 		if ( daysRented <= 2) return limit ;
 
 		return VideoLimit.fromInteger(video.getVideoType()).getValue() ;
